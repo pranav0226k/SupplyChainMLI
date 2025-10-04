@@ -1,0 +1,10 @@
+{
+	"name": "LS_ADLS_SupplyChain",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://sa28supplychain.dfs.core.windows.net/"
+		}
+	}
+}
