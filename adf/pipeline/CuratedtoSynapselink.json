@@ -28,33 +28,19 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"allowCopyCommand": true,
+						"writeBehavior": "Insert",
+						"sqlWriterUseTableLock": false,
 						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "TRANSFER",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Type"
-								}
-							},
-							{
-								"source": {
-									"name": "Late delivery",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Late delivery"
-								}
-							}
-						]
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [

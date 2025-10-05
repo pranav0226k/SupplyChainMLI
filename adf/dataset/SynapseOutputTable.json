@@ -196,7 +196,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "dataco_supply_chain"
+			"table": "synapselmi"
 		}
 	}
 }
