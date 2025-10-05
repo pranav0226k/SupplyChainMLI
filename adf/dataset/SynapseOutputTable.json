@@ -1,0 +1,202 @@
+{
+	"name": "SynapseOutputTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SynapseLink28",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Days for shipment (real)",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Days for shipment (scheduled)",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Benefit per sales",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Delivery Status",
+				"type": "varchar"
+			},
+			{
+				"name": "Late delivery",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Category Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Category Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Customer Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Customer Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Country",
+				"type": "varchar"
+			},
+			{
+				"name": "Market",
+				"type": "varchar"
+			},
+			{
+				"name": "Region",
+				"type": "varchar"
+			},
+			{
+				"name": "Latitude",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Longitude",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Department Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Department Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Product Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Product Description",
+				"type": "varchar"
+			},
+			{
+				"name": "Product Image",
+				"type": "varchar"
+			},
+			{
+				"name": "Order Item Id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Order Item Position",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Order Item Quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Order Item Line Total",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Order Item Discount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Order Item Profit Ratio",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Order Region",
+				"type": "varchar"
+			},
+			{
+				"name": "Order Priority",
+				"type": "varchar"
+			},
+			{
+				"name": "Order Item Cardprod Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Order Item Promotion Discount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Zone",
+				"type": "varchar"
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "State Province",
+				"type": "varchar"
+			},
+			{
+				"name": "Customer Segment",
+				"type": "varchar"
+			},
+			{
+				"name": "Order Date",
+				"type": "date"
+			},
+			{
+				"name": "Order Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Product Category Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Product Category Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Product Price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Product SKU",
+				"type": "varchar"
+			},
+			{
+				"name": "Product Base Margin",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dataco_supply_chain"
+		}
+	}
+}

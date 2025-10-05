@@ -1,0 +1,704 @@
+{
+	"name": "DataCoETLPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopyRawtoCurated",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Type",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Days for shipping (real)",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Days for shipping (real)",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Days for shipment (scheduled)",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Days for shipment (scheduled)",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Benefit per order",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Benefit per order",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sales per customer",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sales per customer",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Delivery Status",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Delivery Status",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Late_delivery_risk",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Late_delivery_risk",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Category Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Category Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Category Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Category Name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer City",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer City",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Country",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Country",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Email",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Email",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Fname",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Fname",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Lname",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Lname",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Password",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Password",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Segment",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Segment",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer State",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Street",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Street",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Zipcode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Customer Zipcode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Department Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Department Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Department Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Department Name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Latitude",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Latitude",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Longitude",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Longitude",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Market",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Market",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order City",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order City",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Country",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Country",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Customer Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Customer Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "order date (DateOrders)",
+									"type": "DateTime",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "order date (DateOrders)",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Cardprod Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Cardprod Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Discount",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Discount",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Discount Rate",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Discount Rate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Product Price",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Product Price",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Profit Ratio",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Profit Ratio",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Quantity",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Quantity",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sales",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sales",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Item Total",
+									"type": "Int16",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Item Total",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Profit Per Order",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Profit Per Order",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Region",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Region",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order State",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Status",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Status",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Zipcode",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Order Zipcode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Card Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Card Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Category Id",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Category Id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Description",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Image",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Image",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Price",
+									"type": "Double",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Price",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Product Status",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Product Status",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "shipping date (DateOrders)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "shipping date (DateOrders)",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Shipping Mode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Shipping Mode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "RawDataDataCo",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CuratedProcessed",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
